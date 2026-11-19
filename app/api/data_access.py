@@ -149,6 +149,19 @@ def get_data_summary() -> dict:
     }
 
 
+def get_table_preview(table: str, limit: int = 8) -> dict:
+    """First `limit` rows of a cleaned table, so users can actually see the dataset."""
+    allowed = {t["table"] for t in get_data_summary()["tables"]}
+    if table not in allowed:
+        raise ValueError(f"unknown table '{table}' (allowed: {sorted(allowed)})")
+    limit = max(1, min(int(limit), 50))
+    df = pd.read_csv(paths.CLEAN / f"{table}.v1.csv", nrows=limit)
+    total = next((t["rows"] for t in get_data_summary()["tables"] if t["table"] == table), None)
+    rows = df.astype(object).where(pd.notna(df), None).values.tolist()
+    return {"table": table, "columns": [str(c) for c in df.columns],
+            "rows": rows, "preview_rows": len(rows), "total_rows": total}
+
+
 def scenario_result_rows() -> list[dict]:
     """Flatten p6 results into scenario_results rows (for seed + /scenarios/results)."""
     data = get_precomputed_scenarios()

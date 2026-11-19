@@ -94,6 +94,15 @@ def data_summary():
     return da.get_data_summary()
 
 
+@app.get("/api/data/preview")
+def data_preview(table: str = Query(...), limit: int = Query(8, ge=1, le=50)):
+    """First rows of a cleaned table so users can inspect the dataset."""
+    try:
+        return da.get_table_preview(table, limit)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
 # --------------------------------------------------------------------------- #
 # Solve
 # --------------------------------------------------------------------------- #

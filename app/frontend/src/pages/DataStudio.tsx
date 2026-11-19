@@ -1,16 +1,45 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { api, type DataSummary } from "../lib/api";
+import { api, type DataSummary, type TablePreview } from "../lib/api";
 import { useApi } from "../lib/useApi";
 import { Gate } from "../components/States";
 import { PageHead, AssumptionsBanner } from "../components/Layout";
 import { fmt } from "../lib/format";
 
+function DatasetPreview({ tables }: { tables: string[] }) {
+  const [table, setTable] = useState(tables.includes("products") ? "products" : tables[0]);
+  const prev = useApi<TablePreview>(() => api.dataPreview(table, 8), [table]);
+  return (
+    <div className="card">
+      <div className="card-header">
+        <div><div className="card-title">Dataset preview</div><div className="card-sub">See the actual rows of any source table</div></div>
+        <select className="filter-chip" value={table} onChange={(e) => setTable(e.target.value)} aria-label="Choose a table">
+          {tables.map((t) => <option key={t} value={t}>{t}</option>)}
+        </select>
+      </div>
+      <Gate r={prev} skeletonH={160}>
+        {(p) => (
+          <>
+            <div className="table-wrap"><table className="data-table">
+              <thead><tr>{p.columns.map((c) => <th key={c}>{c}</th>)}</tr></thead>
+              <tbody>{p.rows.map((row, i) => (
+                <tr key={i}>{row.map((v, j) => <td key={j}>{v === null ? "—" : String(v)}</td>)}</tr>
+              ))}</tbody>
+            </table></div>
+            <div className="tiny muted" style={{ marginTop: 10 }}>Showing first {p.preview_rows} of {fmt(p.total_rows)} rows · cleaned table <b>{p.table}.v1.csv</b></div>
+          </>
+        )}
+      </Gate>
+    </div>
+  );
+}
+
 export default function DataStudio() {
   const sum = useApi<DataSummary>(() => api.dataSummary(), []);
   return (
     <>
-      <PageHead eyebrow="Data studio" title="From source to certainty."
-        sub="The validated data foundation behind every decision — cleaned, checked and loaded."
+      <PageHead eyebrow="Dataset overview" title="See the data behind every decision."
+        sub="Inspect the validated source tables, data-quality checks and sample records."
         actions={<Link to="/network" className="btn dark">Inspect network →</Link>} />
       <AssumptionsBanner>The dataset is real and validated; cost parameters (used later) are assumed and documented separately.</AssumptionsBanner>
 
@@ -37,20 +66,22 @@ export default function DataStudio() {
                 ))}
               </div>
 
+              <DatasetPreview tables={d.tables.map((t) => t.table)} />
+
               <div className="grid-2-even">
                 <div className="card">
-                  <div className="card-header"><div><div className="card-title">Import source data</div><div className="card-sub">Live upload status</div></div><span className="pill amber">Not enabled</span></div>
+                  <div className="card-header"><div><div className="card-title">Import your own data</div><div className="card-sub">Live upload status</div></div><span className="pill amber">Not enabled</span></div>
                   <div className="upload-zone" style={{ opacity: 0.75 }}>
                     <span className="upload-icon">↥</span>
                     <h3>Server-side ingestion</h3>
-                    <p>This build optimizes against the bundled, validated dataset. Live XLSB/CSV upload and re-validation are not enabled here — so no file is accepted rather than faking a successful import.</p>
+                    <p>This build optimizes against the bundled, validated dataset. Live XLSB/CSV upload and re-validation are a planned extension — so no file is accepted here rather than faking a successful import.</p>
                   </div>
                   <div className="notice" style={{ marginTop: 14 }}>Source: <b>{d.source_file}</b> · {d.status}</div>
                 </div>
                 <div className="card">
                   <div className="card-header"><div><div className="card-title">Data quality framework</div><div className="card-sub">Validation checks (real results)</div></div></div>
                   {checks.map(([label, ok], i) => (
-                    <div className="flow-item" key={i}><span><b>{label}</b></span><span className={`small-tag ${ok ? "" : "red"}`} style={ok ? {} : undefined}>{ok ? "Pass" : "Review"}</span></div>
+                    <div className="flow-item" key={i}><span><b>{label}</b></span><span className={`small-tag ${ok ? "" : "red"}`}>{ok ? "Pass" : "Review"}</span></div>
                   ))}
                   <div className="tiny muted" style={{ marginTop: 10 }}>BOM identity rows isolated: {fmt(v.bom_identity_rows)} (benign mother==child).</div>
                 </div>

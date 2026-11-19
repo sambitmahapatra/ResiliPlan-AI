@@ -70,6 +70,7 @@ export interface SolveResult {
   plan?: { shortage_by_component_period: any[]; shipments: any[] };
 }
 export interface RunRow { id: string; scenario_id: string | null; status: string; objective_mu: number; service_overall_pct: number; created_at: string; }
+export interface TablePreview { table: string; columns: string[]; rows: (string | number | null)[][]; preview_rows: number; total_rows: number | null; }
 
 export const api = {
   health: () => get<Health>("/api/health"),
@@ -80,6 +81,7 @@ export const api = {
   costAssumptions: () => get<{ status: string; parameters: CostParam[] }>("/api/cost-assumptions"),
   monteCarlo: () => get<MonteCarlo>("/api/monte-carlo"),
   dataSummary: () => get<DataSummary>("/api/data/summary"),
+  dataPreview: (table: string, limit = 8) => get<TablePreview>(`/api/data/preview?table=${encodeURIComponent(table)}&limit=${limit}`),
   runs: () => get<{ runs: RunRow[]; note?: string }>("/api/runs"),
   solve: (body: SolveRequest) => post<SolveResult>("/api/solve", body),
   exportScenarioCsvUrl: () => `${BASE}/api/export/scenario-comparison.csv`,

@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { api, type ScenarioResult, type Component, type MonteCarlo } from "../lib/api";
 import { useApi } from "../lib/useApi";
@@ -5,6 +6,36 @@ import { Gate } from "../components/States";
 import { PageHead, AssumptionsBanner } from "../components/Layout";
 import { Raw, donutSvg, CHART_COLORS } from "../lib/charts";
 import { fmt, mu, pct, titleCase, HORIZON } from "../lib/format";
+
+function AboutSection() {
+  const cards: { icon: string; eyebrow: string; title: string; body: ReactNode }[] = [
+    { icon: "⚠", eyebrow: "THE PROBLEM", title: "Disruptions cascade through the network",
+      body: "A delay or capacity loss at one upstream supplier propagates through the bill of materials, capacities and lead times — delaying customer orders and raising cost. Dashboards show where it hurts; they rarely tell a manager how to respond." },
+    { icon: "✦", eyebrow: "OUR INNOVATIVE SOLUTION", title: "Component-layer MILP, solved exactly",
+      body: "A time-indexed optimization model solved with HiGHS recommends feasible production, inventory and material-flow decisions. We explode 28,000 vehicle configurations onto their 49 real components, so the full network is optimized exactly — not sampled. Scenarios and a seeded Monte Carlo quantify resilience, and every result is independently balance-checked." },
+    { icon: "◎", eyebrow: "HOW TO USE IT", title: "From data to a recovery decision",
+      body: <>① <b>Dataset overview</b> — inspect the validated data. ② <b>Supply network</b> — see dependencies & lead-time risk. ③ <b>Scenario lab</b> — set a disruption and <b>Run optimization</b>. ④ <b>Planning</b> / <b>Intelligence</b> — read the recovery plan & trade-offs. ⑤ <b>Reports</b> — export the brief.</> },
+    { icon: "➜", eyebrow: "FUTURE SCOPE", title: "Where it goes next",
+      body: "User-uploaded datasets with server-side ingestion, two-stage stochastic optimization, true backorders, demand forecasting where history supports it, and live ERP integration for continuous replanning." },
+  ];
+  return (
+    <div className="card" style={{ marginBottom: 17, background: "linear-gradient(135deg,#fbfaff,#fdfbf8)" }}>
+      <div className="card-header"><div><div className="card-title">What ResiliPlan AI does</div><div className="card-sub">Problem · solution · how to use · roadmap</div></div><span className="pill purple">About</span></div>
+      <div className="grid-2-even" style={{ margin: 0 }}>
+        {cards.map((c, i) => (
+          <div key={i} style={{ display: "flex", gap: 13, padding: "6px 2px" }}>
+            <div className="insight-icon" style={{ flexShrink: 0 }}>{c.icon}</div>
+            <div>
+              <div className="eyebrow" style={{ marginBottom: 5 }}>{c.eyebrow}</div>
+              <h4 style={{ margin: "0 0 7px", fontSize: 13 }}>{c.title}</h4>
+              <p style={{ margin: 0, fontSize: 11.5, lineHeight: 1.7, color: "#6b7280" }}>{c.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Dashboard() {
   const results = useApi<{ results: ScenarioResult[]; baseline_objective: number }>(() => api.scenarioResults(), []);
@@ -20,6 +51,8 @@ export default function Dashboard() {
           <Link className="btn dark" to="/scenarios">+ &nbsp; New scenario</Link>
         </>} />
       <AssumptionsBanner />
+
+      <AboutSection />
 
       <Gate r={results} skeletonH={120}>
         {(d) => {

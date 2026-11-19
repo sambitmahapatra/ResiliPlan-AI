@@ -99,6 +99,56 @@ def get_precomputed_scenarios() -> dict:
     return json.loads(p.read_text(encoding="utf-8"))
 
 
+@lru_cache(maxsize=1)
+def get_data_summary() -> dict:
+    """Source-table catalog + validation status (real), for the Data Studio screen.
+
+    Reads results/p1_audit_results.json (validation) and the clean tables (row counts)."""
+    sheets_meta = [
+        ("products", "Product master (cars + components)", "Master data"),
+        ("nodes", "Production / inventory / transport nodes", "Network"),
+        ("nodes_inflow", "Products produced at each supplier node", "Network"),
+        ("arcs", "Directed transport links + lead times", "Network"),
+        ("capacity_at_arc", "Transport capacity by period", "Capacity"),
+        ("max_flow_product_per_arc", "Planned product flow per arc/period", "Capacity"),
+        ("max_flow_group_per_arc", "Planned group flow per arc/period", "Capacity"),
+        ("operations", "Manufacturing transformations (recipes)", "Production"),
+        ("BOM", "Bill of materials (parent -> child)", "BOM"),
+        ("demands", "Customer demand by product/period", "Demand"),
+        ("initial_inventories", "Starting inventory, safety & max stock", "Inventory"),
+        ("initial_flows", "In-transit material at horizon start", "Inventory"),
+    ]
+    rows = []
+    for name, desc, role in sheets_meta:
+        try:
+            n = int(pd.read_csv(paths.CLEAN / f"{name}.v1.csv").shape[0])
+        except Exception:
+            n = None
+        rows.append({"table": name, "rows": n, "description": desc, "role": role})
+
+    audit = {}
+    p = paths.RESULTS / "p1_audit_results.json"
+    if p.exists():
+        a = json.loads(p.read_text(encoding="utf-8"))
+        s = a.get("summary", {})
+        audit = {
+            "counts_all_match": s.get("counts_all_match"),
+            "referential_failures": s.get("referential_failures", []),
+            "duplicate_key_sheets": s.get("duplicate_key_sheets", []),
+            "bom_is_dag": s.get("bom_is_dag_real_edges"),
+            "bom_identity_rows": s.get("bom_identity_rows"),
+            "any_negative_quantities": s.get("any_negative_quantities"),
+            "columns_with_missing": a.get("integrity", {}).get("columns_with_missing"),
+        }
+    return {
+        "source_file": "2020_dataset_OfAutomotiveProductionNetwork.xlsb",
+        "source_format": "XLSB", "worksheets": len(sheets_meta),
+        "horizon": "Periods 61–74 (14 periods)",
+        "status": "Cleaned, validated & loaded (versioned CSVs in data/clean)",
+        "tables": rows, "validation": audit,
+    }
+
+
 def scenario_result_rows() -> list[dict]:
     """Flatten p6 results into scenario_results rows (for seed + /scenarios/results)."""
     data = get_precomputed_scenarios()

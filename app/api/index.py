@@ -88,6 +88,12 @@ def monte_carlo():
     return da.get_precomputed_scenarios().get("monte_carlo", {})
 
 
+@app.get("/api/data/summary")
+def data_summary():
+    """Real source-table catalog + validation status for Data Studio."""
+    return da.get_data_summary()
+
+
 # --------------------------------------------------------------------------- #
 # Solve
 # --------------------------------------------------------------------------- #

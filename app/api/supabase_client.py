@@ -34,7 +34,11 @@ def _load_dotenv() -> None:
 
 _load_dotenv()
 
-URL = os.environ.get("SUPABASE_URL", "").rstrip("/")
+URL = os.environ.get("SUPABASE_URL", "").strip().rstrip("/")
+# Tolerate a URL that already includes the PostgREST path (common copy/paste): we append
+# /rest/v1 ourselves, so strip a trailing /rest/v1 if present.
+if URL.endswith("/rest/v1"):
+    URL = URL[: -len("/rest/v1")]
 KEY = os.environ.get("SUPABASE_SERVICE_KEY") or os.environ.get("SUPABASE_ANON_KEY", "")
 
 

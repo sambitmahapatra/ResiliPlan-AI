@@ -1,0 +1,13 @@
+sheet,candidate_key,duplicate_rows,status
+products,product_p,0,OK
+nodes,node_n,0,OK
+nodes_inflow,node_n + product_p,0,OK
+arcs,starting_node_i + ending_node_j,0,OK
+capacity_at_arc,starting_node_i + ending_node_j + period_t,0,OK
+max_flow_product_per_arc,starting_node_i + ending_node_j + product_p + period_t,0,OK
+max_flow_group_per_arc,starting_node_i + ending_node_j + group_g + period_t,0,OK
+operations,node_n + input_product_group_x + output_product_group_y,0,OK
+BOM,mother + child,0,OK
+demands,node_n + product_p + period_t,0,OK
+initial_inventories,node_n + product_p + period_t,0,OK
+initial_flows,starting_node_i + ending_node_j + product_p + period_t,0,OK

@@ -1,0 +1,7 @@
+metric,value
+nodes,12
+arcs,11
+weakly connected,True
+nodes that can reach zp8,12
+nodes that CANNOT reach zp8,none
+max echelon depth to zp8,4

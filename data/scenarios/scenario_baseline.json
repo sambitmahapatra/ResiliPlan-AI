@@ -1,0 +1,8 @@
+{
+  "id": "baseline",
+  "name": "Baseline",
+  "nature": "reference (no disruption)",
+  "managerial_question": "What is the least-cost feasible plan under nominal conditions?",
+  "modifications": {},
+  "disclaimer": "Disruption inputs are SYNTHETIC assumptions for stress testing, not observed historical events."
+}

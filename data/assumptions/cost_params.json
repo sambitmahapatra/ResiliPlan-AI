@@ -1,0 +1,19 @@
+{
+  "monetary_unit": "MU (dimensionless; decisions depend on relative ratios)",
+  "status": "ALL ASSUMED \u2014 source workbook contains no cost data",
+  "prod_cost": {
+    "car": 1000.0,
+    "engine": 300.0,
+    "gear": 150.0,
+    "battery": 250.0,
+    "seat": 120.0,
+    "battery_componment": 15.0,
+    "seat_componment": 20.0
+  },
+  "transport_cost_base": 2,
+  "transport_cost_per_lead_period": 1.0,
+  "holding_rate_per_period": 0.02,
+  "shortage_penalty_car": 5000,
+  "expedite_multiplier": 3.0,
+  "expedite_lead_reduction": 1
+}

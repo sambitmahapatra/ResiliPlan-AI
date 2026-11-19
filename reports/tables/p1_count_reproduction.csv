@@ -1,0 +1,13 @@
+metric,expected,observed,match
+products rows,28049,28049,YES
+products cols,3,3,YES
+BOM rows,87059,87059,YES
+nodes,12,12,YES
+arcs,11,11,YES
+distinct BOM components (children),49,49,YES
+product group 'car',28000,28000,YES
+demand rows,28000,28000,YES
+demand periods (min),61,61,YES
+demand periods (max),74,74,YES
+demand distinct products,28000,28000,YES
+capacity_at_arc rows,154,154,YES

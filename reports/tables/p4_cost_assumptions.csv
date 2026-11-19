@@ -1,0 +1,14 @@
+parameter,status,scope,value,unit,basis,sensitivity_low,sensitivity_high
+prod_cost.car,ASSUMED,per unit (group=car),1000.0,MU/unit,Final assembly is the most cost-intensive step; anchor value.,700.0,1300.0
+prod_cost.engine,ASSUMED,per unit (group=engine),300.0,MU/unit,Major powertrain component; ~30% of assembly anchor.,210.0,390.0
+prod_cost.gear,ASSUMED,per unit (group=gear),150.0,MU/unit,Mechanical sub-assembly; ~15% of anchor.,105.0,195.0
+prod_cost.battery,ASSUMED,per unit (group=battery),250.0,MU/unit,Battery pack assembly from cells; ~25% of anchor.,175.0,325.0
+prod_cost.seat,ASSUMED,per unit (group=seat),120.0,MU/unit,Seat assembly from components; ~12% of anchor.,84.0,156.0
+prod_cost.battery_componment,ASSUMED,per unit,15.0,MU/unit,"Raw battery cell/module; low unit cost, high multiplicity (20/pack).",10.0,20.0
+prod_cost.seat_componment,ASSUMED,per unit,20.0,MU/unit,Raw seat component (frame/foam/trim).,14.0,26.0
+transport_cost.base,ASSUMED,per unit shipped on any arc,2.0,MU/unit,Fixed handling/loading cost per unit moved.,1.0,4.0
+transport_cost.per_lead_period,ASSUMED,per unit per lead-time period of the arc,1.0,MU/unit/period,Transport cost scales with transit time/distance (lead time as proxy).,0.5,2.0
+holding_cost.rate_per_period,ASSUMED,"fraction of item production cost, per period",0.02,fraction/period,~2%/period carrying cost (≈ 25-30%/yr typical automotive).,0.01,0.04
+shortage_penalty.car,ASSUMED,per unfulfilled car per period late,5000.0,MU/car/period,Set ABOVE full fulfilment cost so the optimiser prefers to serve demand; proxy for lost-sale + contractual penalty. Dominant term enforcing service.,3000.0,10000.0
+expedite_multiplier,ASSUMED,multiplier on transport cost for expedited flow,3.0,x,Premium (air/priority freight) relative to standard transport.,2.0,5.0
+expedite_lead_reduction,ASSUMED,periods removed from an arc's lead time when expedited,1.0,periods,Expedited shipments arrive faster by ~1 period (bounded at >=0).,1.0,2.0

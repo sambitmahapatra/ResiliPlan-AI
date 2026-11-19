@@ -1,0 +1,18 @@
+metric,value
+solver status,optimal (HiGHS 7)
+objective (MU),18395031.0
+objective recomputed,18395031.0
+objective reconciles,YES
+cost: production,9920000.0
+cost: transport,370717.0
+cost: holding,344314.0
+cost: shortage penalty,7760000.0
+direct component demand (units),87003
+total shortage (units),1552.0
+component service level %,98.22
+independent validation all_ok,YES
+max balance residual,0.00e+00
+max capacity violation,0.00e+00
+variables,5096
+equality constraints,2548
+capacity constraints,140

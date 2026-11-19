@@ -1,0 +1,14 @@
+{
+  "connectivity": {
+    "weakly_connected": true,
+    "unreached_to_zp8": []
+  },
+  "explosion": {
+    "cars_with_empty_bom": 0,
+    "explosion_total": 175063.0,
+    "independent_total": 175063.0,
+    "totals_match": true,
+    "per_period_match": true,
+    "n_component_period_rows": 680
+  }
+}

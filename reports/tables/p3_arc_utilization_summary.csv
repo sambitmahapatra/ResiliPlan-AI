@@ -1,0 +1,12 @@
+arc,group,mean_util,max_util,periods_over_capacity
+battery-supplier_trans -> battery-supplier_prod,battery_componment,2.114,3.732,1
+battery-supplier_inv -> zp7,battery,0.73,2.412,3
+battery-supplier_prod -> battery-supplier_inv,battery,0.73,2.412,3
+zp7 -> zp8,car,1.0,1.0,0
+engine-supplier_inv -> zp7,engine,0.952,0.952,0
+engine-supplier_prod -> engine-supplier_inv,engine,0.952,0.952,0
+gear-supplier_inv -> zp7,gear,0.952,0.952,0
+gear-supplier_prod -> gear-supplier_inv,gear,0.952,0.952,0
+seat-supplier_inv -> zp7,seat,0.952,0.952,0
+seat-supplier_prod -> seat-supplier_inv,seat,0.952,0.952,0
+seat-supplier_trans -> seat-supplier_prod,seat_componment,0.136,0.136,0

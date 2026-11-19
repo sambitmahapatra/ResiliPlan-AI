@@ -1,0 +1,7 @@
+sheet,period_min,period_max,n_distinct_periods,periods
+demands,61,74,14,"61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74"
+capacity_at_arc,61,74,14,"61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74"
+max_flow_product_per_arc,61,70,10,"61, 62, 63, 64, 65, 66, 67, 68, 69, 70"
+max_flow_group_per_arc,61,70,10,"61, 62, 63, 64, 65, 66, 67, 68, 69, 70"
+initial_inventories,60,60,1,60
+initial_flows,39,60,5,"39, 46, 53, 59, 60"

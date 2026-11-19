@@ -1,0 +1,24 @@
+{
+  "id": "supplier_disruption",
+  "name": "Battery supplier capacity reduction",
+  "nature": "SYNTHETIC stress test",
+  "managerial_question": "A battery supplier loses capacity for several periods \u2014 which downstream vehicles are affected and how should production adapt?",
+  "modifications": {
+    "arc_capacity_multiplier": [
+      {
+        "arc": [
+          "battery-supplier_prod",
+          "battery-supplier_inv"
+        ],
+        "factor": 0.5,
+        "periods": [
+          64,
+          65,
+          66,
+          67
+        ]
+      }
+    ]
+  },
+  "disclaimer": "Disruption inputs are SYNTHETIC assumptions for stress testing, not observed historical events."
+}

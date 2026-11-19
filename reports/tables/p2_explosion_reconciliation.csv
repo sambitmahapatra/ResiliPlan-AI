@@ -1,0 +1,10 @@
+metric,value
+cars demanded / period (min),2000
+cars demanded / period (max),2000
+distinct cars demanded,28000
+cars with EMPTY BOM (should be 0),0
+total exploded component-units,175063.0
+independent total (cross-check),175063.0
+explosion total == independent total,YES
+per-period totals match,YES
+mean component-units per car,6.252

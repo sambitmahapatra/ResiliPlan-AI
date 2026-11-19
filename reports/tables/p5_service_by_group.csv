@@ -1,0 +1,5 @@
+group,demand,short,service_level_%
+battery,3003.0,1552.0,48.32
+engine,28000.0,0.0,100.0
+gear,28000.0,0.0,100.0
+seat,28000.0,0.0,100.0

@@ -1,0 +1,19 @@
+{
+  "id": "transport_constraint",
+  "name": "Engine inbound arc capacity cut",
+  "nature": "SYNTHETIC stress test",
+  "managerial_question": "A key inbound transport link is constrained \u2014 which material flows should be reprioritised?",
+  "modifications": {
+    "arc_capacity_multiplier": [
+      {
+        "arc": [
+          "engine-supplier_inv",
+          "zp7"
+        ],
+        "factor": 0.6,
+        "periods": "all"
+      }
+    ]
+  },
+  "disclaimer": "Disruption inputs are SYNTHETIC assumptions for stress testing, not observed historical events."
+}

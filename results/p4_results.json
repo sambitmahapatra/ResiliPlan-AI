@@ -1,0 +1,13 @@
+{
+  "n_cost_params": 13,
+  "n_scenarios": 6,
+  "scenario_ids": [
+    "baseline",
+    "supplier_disruption",
+    "material_delay",
+    "demand_surge",
+    "transport_constraint",
+    "emergency_response"
+  ],
+  "all_arc_refs_valid": true
+}

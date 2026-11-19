@@ -1,0 +1,14 @@
+sheet.column,unit (assumed),min,max,mean,n_negative,n_distinct
+arcs.process_lead_time_l_ij,periods,0,23,4.636,0,5
+capacity_at_arc.capacity_c_ijt,flow units/period,0,14700,1598.364,0,6
+max_flow_product_per_arc.planned_flow,units/period,1,709,109.589,0,180
+max_flow_group_per_arc.planned_flow,units/period,2000,2000,2000.0,0,1
+operations.input_quantity_in_nxy,units,1,20,2.267,0,2
+operations.output_quantity_out_nxy,units,1,1,1.0,0,1
+BOM.individual_input_quantity_q_mc,units/parent,1,10,1.0,0,4
+demands.demand_d_npt,units/period,1,1,1.0,0,1
+initial_inventories.initial_inventory_I_np0,units,3,2480,291.61,0,72
+initial_inventories.safety_stock,units,0,0,0.0,0,1
+initial_inventories.max_inventory,units,99999,99999,99999.0,0,1
+initial_flows.initial_flow,units,2,9470,890.761,0,99
+products.transportation_size_s,size class,0,0,0.0,0,1

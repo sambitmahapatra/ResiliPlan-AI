@@ -1,0 +1,19 @@
+{
+  "id": "demand_surge",
+  "name": "Demand surge (mid-horizon)",
+  "nature": "SYNTHETIC stress test",
+  "managerial_question": "Demand spikes for a block of periods \u2014 which orders can still be fulfilled and at what cost?",
+  "modifications": {
+    "car_demand_multiplier": [
+      {
+        "periods": [
+          66,
+          67,
+          68
+        ],
+        "factor": 1.3
+      }
+    ]
+  },
+  "disclaimer": "Disruption inputs are SYNTHETIC assumptions for stress testing, not observed historical events."
+}

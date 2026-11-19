@@ -1,0 +1,19 @@
+{
+  "id": "material_delay",
+  "name": "Gear inbound lead-time increase",
+  "nature": "SYNTHETIC stress test",
+  "managerial_question": "Gear deliveries are delayed \u2014 what inventory/shipment adjustments mitigate late arrivals?",
+  "modifications": {
+    "arc_lead_time_delta": [
+      {
+        "arc": [
+          "gear-supplier_inv",
+          "zp7"
+        ],
+        "delta_periods": 3,
+        "periods": "all"
+      }
+    ]
+  },
+  "disclaimer": "Disruption inputs are SYNTHETIC assumptions for stress testing, not observed historical events."
+}

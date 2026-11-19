@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+*.egg-info/
+
+# Node / frontend
+node_modules/
+app/frontend/dist/
+app/frontend/.vite/
+.env
+.env.local
+*.local
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs (keep the dir, ignore contents)
+results/logs/*.log
+
+# Secrets
+.supabase/
+*.key
+app/api/.env
+.claude/settings.local.json
+
+# Vercel
+.vercel/
+
+# NOTE: do NOT ignore data/raw (the source workbook is part of the submission),
+# reports/figures, reports/tables, or data/clean — these are deliverables.

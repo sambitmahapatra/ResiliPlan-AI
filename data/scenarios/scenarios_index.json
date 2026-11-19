@@ -1,0 +1,35 @@
+{
+  "scenarios": [
+    {
+      "id": "baseline",
+      "name": "Baseline",
+      "nature": "reference (no disruption)"
+    },
+    {
+      "id": "supplier_disruption",
+      "name": "Battery supplier capacity reduction",
+      "nature": "SYNTHETIC stress test"
+    },
+    {
+      "id": "material_delay",
+      "name": "Gear inbound lead-time increase",
+      "nature": "SYNTHETIC stress test"
+    },
+    {
+      "id": "demand_surge",
+      "name": "Demand surge (mid-horizon)",
+      "nature": "SYNTHETIC stress test"
+    },
+    {
+      "id": "transport_constraint",
+      "name": "Engine inbound arc capacity cut",
+      "nature": "SYNTHETIC stress test"
+    },
+    {
+      "id": "emergency_response",
+      "name": "Battery disruption + expedited recovery",
+      "nature": "SYNTHETIC stress test (policy option on top of supplier disruption)"
+    }
+  ],
+  "count": 6
+}

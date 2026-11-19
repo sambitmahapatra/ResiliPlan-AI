@@ -1,0 +1,106 @@
+{
+  "counts": {
+    "products rows": {
+      "expected": 28049,
+      "observed": 28049,
+      "match": true
+    },
+    "products cols": {
+      "expected": 3,
+      "observed": 3,
+      "match": true
+    },
+    "BOM rows": {
+      "expected": 87059,
+      "observed": 87059,
+      "match": true
+    },
+    "nodes": {
+      "expected": 12,
+      "observed": 12,
+      "match": true
+    },
+    "arcs": {
+      "expected": 11,
+      "observed": 11,
+      "match": true
+    },
+    "distinct BOM components (children)": {
+      "expected": 49,
+      "observed": 49,
+      "match": true
+    },
+    "product group 'car'": {
+      "expected": 28000,
+      "observed": 28000,
+      "match": true
+    },
+    "demand rows": {
+      "expected": 28000,
+      "observed": 28000,
+      "match": true
+    },
+    "demand periods (min)": {
+      "expected": 61,
+      "observed": 61,
+      "match": true
+    },
+    "demand periods (max)": {
+      "expected": 74,
+      "observed": 74,
+      "match": true
+    },
+    "demand distinct products": {
+      "expected": 28000,
+      "observed": 28000,
+      "match": true
+    },
+    "capacity_at_arc rows": {
+      "expected": 154,
+      "observed": 154,
+      "match": true
+    }
+  },
+  "integrity": {
+    "columns_with_missing": 0,
+    "duplicate_key_sheets": [],
+    "any_negative_quantities": false
+  },
+  "referential": {
+    "arcs.start_node \u2208 nodes": 0,
+    "arcs.end_node \u2208 nodes": 0,
+    "arcs.group \u2208 product groups": 0,
+    "capacity_at_arc (i,j) \u2208 arcs": 0,
+    "max_flow_product (i,j) \u2208 arcs": 0,
+    "max_flow_product.product \u2208 products": 0,
+    "max_flow_group.group \u2208 groups": 0,
+    "operations.node \u2208 nodes": 0,
+    "operations.input_group \u2208 groups": 0,
+    "operations.output_group \u2208 groups": 0,
+    "BOM.mother \u2208 products": 0,
+    "BOM.child \u2208 products": 0,
+    "demands.node \u2208 nodes": 0,
+    "demands.product \u2208 products": 0,
+    "initial_inventories.node \u2208 nodes": 0,
+    "initial_inventories.product \u2208 products": 0,
+    "initial_flows.product \u2208 products": 0,
+    "initial_flows (i,j) \u2208 arcs": 0,
+    "nodes_inflow.node \u2208 nodes": 0,
+    "nodes_inflow.product \u2208 products": 0
+  },
+  "bom": {
+    "is_dag_real_edges": true,
+    "max_depth": 2,
+    "identity_rows": 49,
+    "real_cycle": "none",
+    "pure_leaves": 44
+  },
+  "summary": {
+    "counts_all_match": true,
+    "referential_failures": [],
+    "duplicate_key_sheets": [],
+    "bom_is_dag_real_edges": true,
+    "bom_identity_rows": 49,
+    "any_negative_quantities": false
+  }
+}

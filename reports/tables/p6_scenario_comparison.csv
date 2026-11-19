@@ -1,0 +1,7 @@
+scenario,status,objective_MU,vs_baseline_MU,service_%,service_vs_base_pp,battery_service_%,shortage_units,expedite_units,valid
+baseline,optimal,18395031.0,0.0,98.22,0.0,48.32,1552.0,0.0,YES
+supplier_disruption,optimal,18395831.0,800.0,98.22,0.0,48.32,1552.0,0.0,YES
+material_delay,optimal,39837879.0,21442848.0,93.13,-5.09,48.32,5975.0,0.0,YES
+demand_surge,optimal,25088831.0,6693800.0,97.08,-1.14,45.99,2704.0,0.0,YES
+transport_constraint,optimal,44777951.0,26382920.0,91.76,-6.46,48.32,7172.0,0.0,YES
+emergency_response,optimal,16450508.0,-1944523.0,98.69,0.47,61.9,1144.0,1390.0,YES

@@ -1,0 +1,182 @@
+{
+  "scenarios": [
+    {
+      "scenario": "baseline",
+      "name": "Baseline",
+      "status": 0,
+      "optimal": true,
+      "objective": 18395031.000000007,
+      "cost": {
+        "production": 9920000.0,
+        "transport": 370717.0,
+        "expedite": 0,
+        "holding": 344313.9999999998,
+        "shortage": 7760000.0
+      },
+      "service": {
+        "overall": 98.22,
+        "by_group": {
+          "battery": 48.32,
+          "engine": 100.0,
+          "gear": 100.0,
+          "seat": 100.0
+        },
+        "total_demand": 87003.0,
+        "total_shortage": 1552.0
+      },
+      "validation_ok": true,
+      "max_resid": 0.0,
+      "expedite_units": 0.0
+    },
+    {
+      "scenario": "supplier_disruption",
+      "name": "Battery supplier capacity reduction",
+      "status": 0,
+      "optimal": true,
+      "objective": 18395831.000000007,
+      "cost": {
+        "production": 9920000.0,
+        "transport": 370717.0,
+        "expedite": 0,
+        "holding": 345113.9999999998,
+        "shortage": 7760000.0
+      },
+      "service": {
+        "overall": 98.22,
+        "by_group": {
+          "battery": 48.32,
+          "engine": 100.0,
+          "gear": 100.0,
+          "seat": 100.0
+        },
+        "total_demand": 87003.0,
+        "total_shortage": 1552.0
+      },
+      "validation_ok": true,
+      "max_resid": 0.0,
+      "expedite_units": 0.0
+    },
+    {
+      "scenario": "material_delay",
+      "name": "Gear inbound lead-time increase",
+      "status": 0,
+      "optimal": true,
+      "objective": 39837879.00000001,
+      "cost": {
+        "production": 9256550.0,
+        "transport": 388064.0,
+        "expedite": 0,
+        "holding": 318264.9999999998,
+        "shortage": 29875000.0
+      },
+      "service": {
+        "overall": 93.13,
+        "by_group": {
+          "battery": 48.32,
+          "engine": 100.0,
+          "gear": 84.2,
+          "seat": 100.0
+        },
+        "total_demand": 87003.0,
+        "total_shortage": 5975.0
+      },
+      "validation_ok": true,
+      "max_resid": 0.0,
+      "expedite_units": 0.0
+    },
+    {
+      "scenario": "demand_surge",
+      "name": "Demand surge (mid-horizon)",
+      "status": 0,
+      "optimal": true,
+      "objective": 25088830.900000002,
+      "cost": {
+        "production": 10826000.0,
+        "transport": 399117.0,
+        "expedite": 0,
+        "holding": 343213.89999999985,
+        "shortage": 13520500.000000002
+      },
+      "service": {
+        "overall": 97.08,
+        "by_group": {
+          "battery": 45.99,
+          "engine": 100.0,
+          "gear": 100.0,
+          "seat": 96.64
+        },
+        "total_demand": 92555.1,
+        "total_shortage": 2704.1000000000004
+      },
+      "validation_ok": true,
+      "max_resid": 2.2737367544323206e-13,
+      "expedite_units": 0.0
+    },
+    {
+      "scenario": "transport_constraint",
+      "name": "Engine inbound arc capacity cut",
+      "status": 0,
+      "optimal": true,
+      "objective": 44777951.00000001,
+      "cost": {
+        "production": 8234000.0,
+        "transport": 336997.0,
+        "expedite": 0,
+        "holding": 346953.9999999998,
+        "shortage": 35860000.0
+      },
+      "service": {
+        "overall": 91.76,
+        "by_group": {
+          "battery": 48.32,
+          "engine": 79.93,
+          "gear": 100.0,
+          "seat": 100.0
+        },
+        "total_demand": 87003.0,
+        "total_shortage": 7172.0
+      },
+      "validation_ok": true,
+      "max_resid": 0.0,
+      "expedite_units": 0.0
+    },
+    {
+      "scenario": "emergency_response",
+      "name": "Battery disruption + expedited recovery",
+      "status": 0,
+      "optimal": true,
+      "objective": 16450508.000000007,
+      "cost": {
+        "production": 10022000.0,
+        "transport": 377335.0,
+        "expedite": 8340.0,
+        "holding": 331172.9999999998,
+        "shortage": 5720000.0
+      },
+      "service": {
+        "overall": 98.69,
+        "by_group": {
+          "battery": 61.9,
+          "engine": 100.0,
+          "gear": 100.0,
+          "seat": 100.0
+        },
+        "total_demand": 87003.0,
+        "total_shortage": 1144.0
+      },
+      "validation_ok": true,
+      "max_resid": 0.0,
+      "expedite_units": 1390.0
+    }
+  ],
+  "baseline_objective": 18395031.000000007,
+  "all_optimal": true,
+  "all_valid": true,
+  "monte_carlo": {
+    "n": 40,
+    "seed": 42,
+    "service_mean": 97.73125,
+    "service_min": 90.26,
+    "service_max": 98.62
+  }
+}

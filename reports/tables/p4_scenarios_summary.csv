@@ -1,0 +1,7 @@
+id,name,nature,modifications
+baseline,Baseline,reference (no disruption),(none)
+supplier_disruption,Battery supplier capacity reduction,SYNTHETIC stress test,arc_capacity_multiplier
+material_delay,Gear inbound lead-time increase,SYNTHETIC stress test,arc_lead_time_delta
+demand_surge,Demand surge (mid-horizon),SYNTHETIC stress test,car_demand_multiplier
+transport_constraint,Engine inbound arc capacity cut,SYNTHETIC stress test,arc_capacity_multiplier
+emergency_response,Battery disruption + expedited recovery,SYNTHETIC stress test (policy option on top of supplier disruption),"arc_capacity_multiplier, enable_expedite"

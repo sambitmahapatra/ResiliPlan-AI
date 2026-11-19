@@ -1,0 +1,9 @@
+metric,value
+runs,40.0
+seed,42.0
+service mean %,97.73
+service std %,1.39
+service min %,90.26
+service max %,98.62
+battery service mean %,48.46
+objective mean MU,20900221.0

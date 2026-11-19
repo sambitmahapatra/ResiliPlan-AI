@@ -1,0 +1,107 @@
+{
+  "criticality": {
+    "n_components": 49,
+    "top5_by_fanout": [
+      {
+        "component": "Q4H",
+        "group": "seat",
+        "n_cars_using": 12038,
+        "pct_configs_dependent": 42.99
+      },
+      {
+        "component": "componment_seat2",
+        "group": "seat_componment",
+        "n_cars_using": 12038,
+        "pct_configs_dependent": 42.99
+      },
+      {
+        "component": "Q2J",
+        "group": "seat",
+        "n_cars_using": 9726,
+        "pct_configs_dependent": 34.74
+      },
+      {
+        "component": "componment_seat1",
+        "group": "seat_componment",
+        "n_cars_using": 9726,
+        "pct_configs_dependent": 34.74
+      },
+      {
+        "component": "G0K",
+        "group": "gear",
+        "n_cars_using": 8592,
+        "pct_configs_dependent": 30.69
+      }
+    ],
+    "highest_lead_time": [
+      {
+        "component": "componment_seat4",
+        "group": "seat_componment",
+        "cum_lead_time": 23.0
+      },
+      {
+        "component": "componment_seat1",
+        "group": "seat_componment",
+        "cum_lead_time": 23.0
+      },
+      {
+        "component": "componment_seat2",
+        "group": "seat_componment",
+        "cum_lead_time": 23.0
+      }
+    ],
+    "top5_by_risk": [
+      {
+        "component": "componment_seat2",
+        "group": "seat_componment",
+        "risk_score": 276874.0
+      },
+      {
+        "component": "componment_seat1",
+        "group": "seat_componment",
+        "risk_score": 223698.0
+      },
+      {
+        "component": "componment_seat3",
+        "group": "seat_componment",
+        "risk_score": 87929.0
+      },
+      {
+        "component": "componment_battery2",
+        "group": "battery_componment",
+        "risk_score": 66066.0
+      },
+      {
+        "component": "componment_battery3",
+        "group": "battery_componment",
+        "risk_score": 66066.0
+      }
+    ]
+  },
+  "utilization": {
+    "bottleneck_arcs": [
+      {
+        "arc": "battery-supplier_trans -> battery-supplier_prod",
+        "group": "battery_componment",
+        "max_util": 3.732,
+        "periods_over_capacity": 1
+      },
+      {
+        "arc": "battery-supplier_inv -> zp7",
+        "group": "battery",
+        "max_util": 2.412,
+        "periods_over_capacity": 3
+      },
+      {
+        "arc": "battery-supplier_prod -> battery-supplier_inv",
+        "group": "battery",
+        "max_util": 2.412,
+        "periods_over_capacity": 3
+      }
+    ],
+    "max_util_arc": {
+      "arc": "battery-supplier_trans -> battery-supplier_prod",
+      "max_util": 3.732
+    }
+  }
+}

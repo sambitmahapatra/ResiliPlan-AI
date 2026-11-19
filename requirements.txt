@@ -1,0 +1,13 @@
+# ResiliPlan AI — Python dependencies (dev env: conda "myenv", Python 3.10, Windows)
+# SOLVER NOTE: the MILP solver is HiGHS, accessed via scipy.optimize.milp (bundled in
+# SciPy). pyomo/highspy are intentionally NOT used — Smart App Control blocks their
+# native binaries on the dev machine (see CLAUDE.md §2). SciPy's HiGHS is SAC-safe and
+# also installs cleanly on Vercel's Linux runtime for the solver API.
+pandas==2.3.3
+numpy==1.26.4
+scipy==1.15.2
+matplotlib==3.10.7
+openpyxl==3.1.5
+pyxlsb==1.0.10
+networkx==3.4.2
+plotly==6.6.0

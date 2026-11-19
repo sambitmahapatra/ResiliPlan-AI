@@ -1,0 +1,18 @@
+metric,value
+total BOM rows,87059
+benign identity rows (mother==child),49
+real parent->child edges,87010
+distinct components (children),49
+components with identity row,49
+distinct real mothers,28005
+real mothers that are also children (nested),5
+pure leaf components (raw),44
+is DAG after removing identity rows,YES
+max BOM depth (levels),2
+real cycle found,none
+children/mother min,1
+children/mother mean,3.104
+children/mother max,4
+input qty min,1.0
+input qty mean,1.0002
+input qty max,10.0

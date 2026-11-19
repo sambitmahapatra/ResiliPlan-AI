@@ -1,0 +1,14 @@
+sheet,clean_file,rows,cols
+products,products.v1.csv,28049,3
+nodes,nodes.v1.csv,12,1
+nodes_inflow,nodes_inflow.v1.csv,44,2
+arcs,arcs.v1.csv,11,4
+capacity_at_arc,capacity_at_arc.v1.csv,154,4
+max_flow_product_per_arc,max_flow_product_per_arc.v1.csv,365,5
+max_flow_group_per_arc,max_flow_group_per_arc.v1.csv,20,5
+operations,operations.v1.csv,15,7
+BOM,BOM.v1.csv,87059,3
+demands,demands.v1.csv,28000,4
+initial_inventories,initial_inventories.v1.csv,82,6
+initial_flows,initial_flows.v1.csv,117,5
+bom_real (derived),bom_real.v1.csv,87010,3
